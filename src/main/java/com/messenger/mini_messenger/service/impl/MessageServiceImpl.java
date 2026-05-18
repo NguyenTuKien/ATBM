@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@Transactional(readOnly = true)
 public class MessageServiceImpl implements MessageService {
 
     private final MessageRepository messageRepository;
