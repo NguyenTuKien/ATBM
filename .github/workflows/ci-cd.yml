@@ -196,11 +196,7 @@ jobs:
         run: docker load -i image.tar
 
       - name: Security Scan
-<<<<<<< HEAD
         uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # Pinned stable v0.35.0 (Official Safe SHA)
-=======
-        uses: aquasecurity/trivy-action@18f28d7ec6e8550186fc18e22770529d27528a24 # Pinned stable v0.28.0 (Audited Safe SHA)
->>>>>>> 2490851 (Security Hardening: Pin trivy-action and login-action to verified safe commit SHAs to prevent supply chain attacks)
         with:
           image-ref: ${{ needs.build-image.outputs.image_name }}:ci
           format: 'table'
@@ -210,10 +206,7 @@ jobs:
           severity: 'CRITICAL,HIGH'
 
       - name: Login to GitHub Container Registry
-<<<<<<< HEAD
         if: github.event_name != 'pull_request'
-=======
->>>>>>> 2490851 (Security Hardening: Pin trivy-action and login-action to verified safe commit SHAs to prevent supply chain attacks)
         uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0 (Audited Safe SHA)
         with:
           registry: ghcr.io
